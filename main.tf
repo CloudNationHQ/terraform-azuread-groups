@@ -1,5 +1,3 @@
-data "azuread_client_config" "current" {}
-
 resource "azuread_group" "main" {
   for_each = {
     for key, group in var.groups : key => group

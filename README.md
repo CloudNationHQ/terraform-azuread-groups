@@ -30,7 +30,6 @@ The following providers are used by this module:
 The following resources are used by this module:
 
 - [azuread_group.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) (resource)
-- [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) (data source)
 
 ## Required Inputs
 
