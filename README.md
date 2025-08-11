@@ -11,7 +11,78 @@ Includes support for dynamic membership groups and M365 groups.
 Utilization of terratest for robust validation.
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+The following requirements are needed by this module:
+
+- <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
+
+- <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) (~> 3.0)
+
+## Providers
+
+The following providers are used by this module:
+
+- <a name="provider_azuread"></a> [azuread](#provider\_azuread) (~> 3.0)
+
+## Resources
+
+The following resources are used by this module:
+
+- [azuread_group.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) (resource)
+- [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) (data source)
+
+## Required Inputs
+
+The following input variables are required:
+
+### <a name="input_groups"></a> [groups](#input\_groups)
+
+Description: describes group configuration
+
+Type:
+
+```hcl
+map(object({
+    administrative_unit_ids    = optional(list(string))
+    assignable_to_role         = optional(bool)
+    auto_subscribe_new_members = optional(bool)
+    behaviors                  = optional(list(string))
+    description                = optional(string)
+    display_name               = optional(string) # if not set, the key will be used as display_name
+    external_senders_allowed   = optional(bool)
+    hide_from_address_lists    = optional(bool)
+    hide_from_outlook_clients  = optional(bool)
+    mail_enabled               = optional(bool)
+    mail_nickname              = optional(string)
+    members                    = optional(list(string))
+    onpremises_group_type      = optional(string)
+    owners                     = optional(list(string), [])
+    prevent_duplicate_names    = optional(bool)
+    provisioning_options       = optional(list(string)) # only value "Team" is supported
+    security_enabled           = optional(bool, true)
+    theme                      = optional(string)
+    types                      = optional(list(string)) # only value "Unified" or "DynamicMembership" are supported
+    visibility                 = optional(string)       # only value "Private", "Public" or "Hiddenmembership" are supported
+    writeback_enabled          = optional(bool)
+    dynamic_membership = optional(object({
+      enabled = optional(bool, true)
+      rule    = string
+    }))
+  }))
+```
+
+## Optional Inputs
+
+No optional inputs.
+
+## Outputs
+
+The following outputs are exported:
+
+### <a name="output_groups"></a> [groups](#output\_groups)
+
+Description: contains all Entra ID groups
 <!-- END_TF_DOCS -->
 
 ## Goals
