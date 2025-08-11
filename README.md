@@ -1,12 +1,12 @@
-# $ResourceName
+# Entra ID (AzureAD) Groups
 
- This terraform module simplifies the creation and management of azure $ResourcName resources, providing customizable options for access policies, key and secret management, and auditing, all managed through code.
+ This terraform module simplifies the creation and management of Entra ID Groups and its members or owners, all managed through code.
 
 ## Features
 
-Capability to...
+Capability to manage groups, and corresponding owners and / or members. 
 
-Includes support for...
+Includes support for dynamic membership groups and M365 groups.
 
 Utilization of terratest for robust validation.
 
@@ -32,7 +32,7 @@ To update the module's documentation run `make doc`
 
 ## Authors
 
-Module is maintained by [these awesome contributors](https://github.com/cloudnationhq/terraform-azure-$ResourceName/graphs/contributors).
+Module is maintained by [these awesome contributors](https://github.com/cloudnationhq/terraform-azuread-groups/graphs/contributors).
 
 ## Contributors
 
@@ -40,8 +40,8 @@ We welcome contributions from the community! Whether it's reporting a bug, sugge
 
 For more information, please see our contribution [guidelines](./CONTRIBUTING.md). <br><br>
 
-<a href="https://github.com/cloudnationhq/terraform-azure-$ResourceName/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=cloudnationhq/terraform-azure-$ResourceName" />
+<a href="https://github.com/cloudnationhq/terraform-azuread-groups/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=cloudnationhq/terraform-azuread-groups" />
 </a>
 
 ## License
@@ -50,6 +50,5 @@ MIT Licensed. See [LICENSE](./LICENSE) for full details.
 
 ## References
 
-- [Documentation](https://learn.microsoft.com/en-us/azure/$ResourceName/)
-- [Rest Api](https://learn.microsoft.com/en-us/rest/api/$ResourceName/)
-- [Rest Api Specs](https://github.com/Azure/azure-rest-api-specs/tree/1f449b5a17448f05ce1cd914f8ed75a0b568d130/specification/$rResourceName)
+- [Documentation](https://learn.microsoft.com/en-us/entra/fundamentals/concept-learn-about-groups)
+- [Rest Api](https://learn.microsoft.com/en-us/graph/api/resources/groups-overview)

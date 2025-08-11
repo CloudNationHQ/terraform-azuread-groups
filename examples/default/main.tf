@@ -1,18 +1,15 @@
-module "naming" {
-  source  = "cloudnationhq/naming/azure"
-  version = "~> 0.1"
-
-  suffix = ["demo", "dev"]
-}
-
-module "rg" {
-  source  = "cloudnationhq/rg/azure"
-  version = "~> 2.0"
+module "groups" {
+  source  = "cloudnationhq/groups/azuread"
+  version = "~> 1.0"
 
   groups = {
-    demo = {
-      name     = module.naming.resource_group.name_unique
-      location = "westeurope"
+    group1 = {
+      display_name = "Group 1"
+      members      = ["12345678-abcd-0987-1234-123456789012"]
+    }
+    group2 = {
+      display_name = "Group 2"
+      owners       = ["12345678-abcd-0987-1234-123456789012"]
     }
   }
 }

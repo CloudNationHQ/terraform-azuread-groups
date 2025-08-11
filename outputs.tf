@@ -1,4 +1,4 @@
-output "resourceName" {
-  description = "contains all $resourceName config"
-  value       = azurerm_resource_name.resource_name
+output "groups" {
+  description = "contains all Entra ID groups"
+  value       = azuread_group.main
 }
