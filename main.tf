@@ -14,9 +14,9 @@ resource "azuread_group" "main" {
   hide_from_outlook_clients  = each.value.hide_from_outlook_clients
   mail_enabled               = each.value.mail_enabled
   mail_nickname              = each.value.mail_nickname
-  members                    = each.value.members
+  members                    = each.value.ignore_members ? null : each.value.members
   onpremises_group_type      = each.value.onpremises_group_type
-  owners                     = each.value.owners
+  owners                     = each.value.ignore_owners ? null : each.value.owners
   prevent_duplicate_names    = each.value.prevent_duplicate_names
   provisioning_options       = each.value.provisioning_options
   security_enabled           = each.value.security_enabled
@@ -25,6 +25,9 @@ resource "azuread_group" "main" {
   visibility                 = each.value.visibility
   writeback_enabled          = each.value.writeback_enabled
 
+  lifecycle {
+    ignore_changes = [members, owners]
+  }
 
   dynamic "dynamic_membership" {
     for_each = each.value.dynamic_membership != null ? [each.value.dynamic_membership] : []
