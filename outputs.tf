@@ -1,4 +1,4 @@
 output "groups" {
   description = "contains all Entra ID groups"
-  value       = merge(azuread_group.managed, azuread_group_without_members.manual)
+  value       = merge(azuread_group.main, azuread_group_without_members.manual)
 }
