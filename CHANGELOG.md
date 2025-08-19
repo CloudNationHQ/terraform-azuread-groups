@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0](https://github.com/CloudNationHQ/terraform-azuread-groups/compare/v1.0.0...v1.1.0) (2025-08-19)
+
+
+### Features
+
+* add optional lifecycle management for group membership ([917e94c](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/917e94c599f6d7024bdc2a2d148249b8364865dd))
+* add optional manual membership management using azuread_group_without_members ([9efb109](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/9efb10919dd8648a61a53d28fb741a3d45bc76ef))
+* add optional manual membership management using azuread_group_without_members ([aec507d](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/aec507d0d9fbda208822508a786a11a9d1c8bdcf))
+* fix output name ([a413b2b](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/a413b2bfc7066da7831c04185cd9f685136d9290))
+
 ## 1.0.0 (2025-08-11)
 
 
