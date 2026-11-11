@@ -36,7 +36,7 @@ resource "azuread_group" "main" {
   }
 }
 
-# groups without members and owners
+# groups without managed members (owners skipped when ignore_owners)
 resource "azuread_group_without_members" "manual" {
   for_each = {
     for key, group in var.groups : key => group
@@ -55,6 +55,7 @@ resource "azuread_group_without_members" "manual" {
   mail_enabled               = each.value.mail_enabled
   mail_nickname              = each.value.mail_nickname
   onpremises_group_type      = each.value.onpremises_group_type
+  owners                     = coalesce(each.value.ignore_owners, false) ? null : each.value.owners
   prevent_duplicate_names    = each.value.prevent_duplicate_names
   provisioning_options       = each.value.provisioning_options
   security_enabled           = each.value.security_enabled
