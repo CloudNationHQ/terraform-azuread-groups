@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/CloudNationHQ/terraform-azuread-groups/compare/v1.2.0...v1.3.0) (2026-11-27)
+
+
+### Features
+
+* **deps:** bump github.com/klauspost/compress in /tests ([#20](https://github.com/CloudNationHQ/terraform-azuread-groups/issues/20)) ([7d733f9](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/7d733f9ee67cd4658b49aecbe65fdb5e759d4ecc))
+* **deps:** bump golang.org/x/net from 0.38.0 to 0.55.0 in /tests ([#21](https://github.com/CloudNationHQ/terraform-azuread-groups/issues/21)) ([89eb253](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/89eb2536f80b22081781166a3bc9c8c9f920b352))
+
 ## [1.2.0](https://github.com/CloudNationHQ/terraform-azuread-groups/compare/v1.1.0...v1.2.0) (2026-11-27)
 
 
