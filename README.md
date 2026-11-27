@@ -10,6 +10,8 @@ Includes support for dynamic membership groups and M365 groups.
 
 Supports non-authoritative membership, adding members to existing groups without touching their other members.
 
+Do not combine `group_members` with an authoritative `members` list for the same group, in this or another configuration, as both would keep undoing each other's changes.
+
 Utilization of terratest for robust validation.
 
 <!-- BEGIN_TF_DOCS -->
@@ -45,14 +47,13 @@ The following input variables are optional (have default values):
 
 ### <a name="input_group_members"></a> [group\_members](#input\_group\_members)
 
-Description: describes non-authoritative group memberships, for existing groups or module groups that use ignore\_members
+Description: describes non-authoritative group memberships, members are added without removing existing members
 
 Type:
 
 ```hcl
 map(object({
-    group_object_id  = optional(string)
-    group_key        = optional(string)
+    group_object_id  = string
     member_object_id = string
   }))
 ```

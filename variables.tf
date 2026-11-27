@@ -33,18 +33,10 @@ variable "groups" {
 }
 
 variable "group_members" {
-  description = "describes non-authoritative group memberships, for existing groups or module groups that use ignore_members"
+  description = "describes non-authoritative group memberships, members are added without removing existing members"
   type = map(object({
-    group_object_id  = optional(string)
-    group_key        = optional(string)
+    group_object_id  = string
     member_object_id = string
   }))
   default = {}
-
-  validation {
-    condition = alltrue([
-      for membership in var.group_members : (membership.group_object_id == null) != (membership.group_key == null)
-    ])
-    error_message = "Each group member must set exactly one of group_object_id or group_key."
-  }
 }

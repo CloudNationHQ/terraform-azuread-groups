@@ -6,23 +6,15 @@ module "shared_groups" {
   version = "~> 1.0"
 
   groups = {
-    acr-push = {
-      display_name   = "ACR Push"
+    shared1 = {
+      display_name   = "Shared Group 1"
       ignore_members = true
       owners         = [data.azuread_client_config.current.object_id]
     }
-    acr-pull = {
-      display_name   = "ACR Pull"
+    shared2 = {
+      display_name   = "Shared Group 2"
       ignore_members = true
       owners         = [data.azuread_client_config.current.object_id]
-    }
-  }
-
-  # members of groups created in the same call are referenced by key
-  group_members = {
-    current-acr-pull = {
-      group_key        = "acr-pull"
-      member_object_id = data.azuread_client_config.current.object_id
     }
   }
 }
@@ -33,8 +25,12 @@ module "memberships" {
   version = "~> 1.0"
 
   group_members = {
-    current-acr-push = {
-      group_object_id  = module.shared_groups.groups["acr-push"].object_id
+    current-shared1 = {
+      group_object_id  = module.shared_groups.groups["shared1"].object_id
+      member_object_id = data.azuread_client_config.current.object_id
+    }
+    current-shared2 = {
+      group_object_id  = module.shared_groups.groups["shared2"].object_id
       member_object_id = data.azuread_client_config.current.object_id
     }
   }
