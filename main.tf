@@ -85,6 +85,8 @@ resource "azuread_group_member" "members" {
   )
   member_object_id = each.value.member_object_id
 
+  # azuread_group.main manages members authoritatively and would remove this
+  # membership on the next apply, so group_key may only target groups without managed members
   lifecycle {
     precondition {
       condition = (
