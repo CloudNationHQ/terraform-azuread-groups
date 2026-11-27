@@ -8,6 +8,8 @@ Capability to manage groups, and corresponding owners and / or members.
 
 Includes support for dynamic membership groups and M365 groups.
 
+Supports non-authoritative membership, adding members to existing groups without touching their other members.
+
 Utilization of terratest for robust validation.
 
 <!-- BEGIN_TF_DOCS -->
@@ -30,11 +32,32 @@ The following providers are used by this module:
 The following resources are used by this module:
 
 - [azuread_group.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group) (resource)
+- [azuread_group_member.members](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_member) (resource)
 - [azuread_group_without_members.manual](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group_without_members) (resource)
 
 ## Required Inputs
 
-The following input variables are required:
+No required inputs.
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_group_members"></a> [group\_members](#input\_group\_members)
+
+Description: describes non-authoritative group memberships, for existing groups or module groups that use ignore\_members
+
+Type:
+
+```hcl
+map(object({
+    group_object_id  = optional(string)
+    group_key        = optional(string)
+    member_object_id = string
+  }))
+```
+
+Default: `{}`
 
 ### <a name="input_groups"></a> [groups](#input\_groups)
 
@@ -74,13 +97,15 @@ map(object({
   }))
 ```
 
-## Optional Inputs
-
-No optional inputs.
+Default: `{}`
 
 ## Outputs
 
 The following outputs are exported:
+
+### <a name="output_group_members"></a> [group\_members](#output\_group\_members)
+
+Description: contains all non-authoritative group memberships
 
 ### <a name="output_groups"></a> [groups](#output\_groups)
 
