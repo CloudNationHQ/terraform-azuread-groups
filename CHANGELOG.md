@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/CloudNationHQ/terraform-azuread-groups/compare/v1.1.0...v1.2.0) (2026-11-27)
+
+
+### Features
+
+* add non-authoritative group member support ([#17](https://github.com/CloudNationHQ/terraform-azuread-groups/issues/17)) ([4db85f2](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/4db85f274a521203c9e312ebb8c57afac893a587))
+* add owners to group without members ([#15](https://github.com/CloudNationHQ/terraform-azuread-groups/issues/15)) ([1473bdc](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/1473bdcc5c18d9521b9da16a204f77db64b6070c))
+
+
+### Bug Fixes
+
+* pass secrets to release workflow ([#18](https://github.com/CloudNationHQ/terraform-azuread-groups/issues/18)) ([da3c6da](https://github.com/CloudNationHQ/terraform-azuread-groups/commit/da3c6dacb66ad98d976914c19edac5febdace3a7))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azuread-groups/compare/v1.0.0...v1.1.0) (2025-08-19)
 
 
