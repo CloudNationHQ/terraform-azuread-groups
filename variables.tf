@@ -29,4 +29,14 @@ variable "groups" {
       rule    = string
     }))
   }))
+  default = {}
+}
+
+variable "group_members" {
+  description = "describes non-authoritative group memberships, members are added without removing existing members"
+  type = map(object({
+    group_object_id  = string
+    member_object_id = string
+  }))
+  default = {}
 }

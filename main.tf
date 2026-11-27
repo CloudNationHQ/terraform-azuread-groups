@@ -73,3 +73,11 @@ resource "azuread_group_without_members" "manual" {
     }
   }
 }
+
+# non-authoritative memberships, other members of the group are left untouched
+resource "azuread_group_member" "members" {
+  for_each = var.group_members
+
+  group_object_id  = each.value.group_object_id
+  member_object_id = each.value.member_object_id
+}
